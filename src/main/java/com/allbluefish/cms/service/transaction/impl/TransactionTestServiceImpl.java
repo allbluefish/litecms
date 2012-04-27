@@ -1,4 +1,4 @@
-package com.allbluefish.cms.service.user.impl;
+package com.allbluefish.cms.service.transaction.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,11 +7,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.allbluefish.cms.dao.user.UserDao;
 import com.allbluefish.cms.model.user.User;
-import com.allbluefish.cms.service.user.UserService;
+import com.allbluefish.cms.service.transaction.TransactionTestService;
 
 @Service
-@Transactional
-public class UserServiceImpl implements UserService {
+public class TransactionTestServiceImpl implements TransactionTestService {
 
 	@Autowired
 	private UserDao userDao;
@@ -19,7 +18,6 @@ public class UserServiceImpl implements UserService {
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
 	public void save(User t) {
 		this.userDao.save(t);
-		throw new RuntimeException("i am wrong");
 	}
 
 	public void delete(User t) {
