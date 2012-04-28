@@ -16,10 +16,9 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
 
-	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
 	public void save(User t) {
 		this.userDao.save(t);
-		throw new RuntimeException("i am wrong");
 	}
 
 	public void delete(User t) {

@@ -17,15 +17,21 @@ public class TransactionServiceTest {
 	@Autowired
 	private TransactionTestService transactionTestService;
 
+	
+	private User initAdmin() {
+		User admin  = new Admin();
+		admin.setUsername("admin_liaozinan");
+		admin.setPassword("123456");
+		return admin;
+	}
+	
 	/**
 	 * 如果存在一个事务，则支持当前事务。如果没有事务则开启一个新的事务
 	 */
 	@Test
 	public void testTXRequired() {
 
-		User admin  = new Admin();
-		admin.setUsername("admin_liaozinan");
-		admin.setPassword("123456");
+		User admin = initAdmin();
 		
 		this.transactionTestService.save(admin);
 	}
@@ -36,7 +42,6 @@ public class TransactionServiceTest {
 	 */
 	@Test
 	public void testTXSupports() {
-
 	}
 
 	/**
@@ -44,7 +49,7 @@ public class TransactionServiceTest {
 	 */
 	@Test
 	public void testTXMandatory() {
-
+		this.transactionTestService.save(initAdmin());
 	}
 
 	/**
@@ -52,7 +57,7 @@ public class TransactionServiceTest {
 	 */
 	@Test
 	public void testTXRequiresNew() {
-
+		this.transactionTestService.add(initAdmin(),initAdmin());
 	}
 
 	/**

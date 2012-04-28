@@ -70,6 +70,12 @@
 			<version>1.2.16</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.6.11</version>
+		</dependency>
+
 		<!-- Spring lib -->
 
 		<dependency>
@@ -108,7 +114,7 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
 
 		<!-- Servlet & Jsp -->
 		<dependency>
